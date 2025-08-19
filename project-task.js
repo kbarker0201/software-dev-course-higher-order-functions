@@ -92,16 +92,14 @@ Step-by-Step:
 2. Add only the prices of products where `inStock` is true.
 3. Store the total in a new variable.
 */
-let totalValueInStock = products.reduce(total, products) => {
-  if (products.inStock === true) {
-    return total + products.price; 
-  } 
-}
+let totalValueInStock = products.reduce((total, products) => {
+    return products.inStock ? total + products.price : total; 
+  }, 0);
 
 // ============================================
 // 🧪 Console Test Your Work
 // ============================================
-console.log("Filtered products:", ...filterProducts(products, availability));
-console.log("Uppercased names:", ...upperCasedNames);
-console.log("Discounted products:", ...discountedPrice);
-console.log("Total value in stock:", ...totalValueInStock);
+console.log("Filtered products:", filterProducts(products, availability));
+console.log("Uppercased names:", upperCasedNames);
+console.log("Discounted products:", discountedPrice);
+console.log("Total value in stock:", totalValueInStock);
