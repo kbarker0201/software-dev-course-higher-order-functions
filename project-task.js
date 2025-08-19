@@ -93,8 +93,10 @@ Step-by-Step:
 3. Store the total in a new variable.
 */
 let totalValueInStock = products.reduce((total, products) => {
-    return products.inStock ? total + products.price : total; 
-  }, 0);
+  if (products.inStock === true) {
+    return total + products.price; 
+  } 
+})
 
 // ============================================
 // 🧪 Console Test Your Work
